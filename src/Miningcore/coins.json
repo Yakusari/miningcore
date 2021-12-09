@@ -841,6 +841,27 @@
         "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
         "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
     },
+    "raptoreum": {
+        "name": "Raptoreum",
+        "symbol": "RTM",
+        "family": "bitcoin",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "ghostrider"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "ghostrider" } ]
+        },
+        "hasFounderFee": true,
+        "hasMasterNodes": true,
+        "shareMultiplier": 65536,
+        "explorerBlockLink": "https://explorer.raptoreum.com/block-height/$height$",
+        "explorerTxLink": "https://explorer.raptoreum.com/tx/{0}",
+        "explorerAccountLink": "https://explorer.raptoreum.com/address/{0}"
+    },
     "verge-blake": {
         "name": "Verge-Blake",
         "canonicalName": "Verge",

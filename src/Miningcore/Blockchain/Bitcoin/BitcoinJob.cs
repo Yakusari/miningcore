@@ -444,8 +444,10 @@ public class BitcoinJob
                 {
                     var payeeDestination = BitcoinUtils.AddressToDestination(masterNode.Payee, network);
                     var payeeReward = masterNode.Amount;
-                    reward -= payeeReward;
-
+                    if(!(poolConfig.Template.Symbol == "RTM")){
+                    		reward -= payeeReward;
+                    		rewardToPool -= payeeReward;
+                    		}
                     tx.Outputs.Add(payeeReward, payeeDestination);
                 }
             }
@@ -467,8 +469,11 @@ public class BitcoinJob
         {
             var payeeAddress = BitcoinUtils.AddressToDestination(masterNodeParameters.Payee, network);
             var payeeReward = masterNodeParameters.PayeeAmount ?? (reward / 5);
+            if(!(poolConfig.Template.Symbol == "RTM")){
+                    reward -= payeeReward;
+                    rewardToPool -= payeeReward;
+                }
 
-            reward -= payeeReward;
 
             tx.Outputs.Add(payeeReward, payeeAddress);
         }
