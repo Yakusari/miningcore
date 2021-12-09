@@ -116,6 +116,11 @@ public class StatsRecorder : BackgroundService
 
             if (result.Length > 0)
             {
+            	var workerCount = 0;
+                    foreach(var workers in byMiner)
+                    {
+                        workerCount += workers.Count();
+                    }
                 // pool miners
                 pool.PoolStats.ConnectedMiners = byMiner.Length; // update connected miners
 
@@ -136,6 +141,8 @@ public class StatsRecorder : BackgroundService
                 // pool shares
                 var poolHashesCountAccumulated = result.Sum(x => x.Count);
                 pool.PoolStats.SharesPerSecond = (int) (poolHashesCountAccumulated / poolHashTimeFrame);
+                
+                pool.PoolStats.ConnectedWorkers = workerCount;
 
                 messageBus.NotifyHashrateUpdated(pool.Config.Id, poolHashrate);
             }
@@ -144,6 +151,7 @@ public class StatsRecorder : BackgroundService
             {
                 // reset
                 pool.PoolStats.ConnectedMiners = 0;
+                pool.PoolStats.ConnectedWorkers = 0;
                 pool.PoolStats.PoolHashrate = 0;
                 pool.PoolStats.SharesPerSecond = 0;
 
