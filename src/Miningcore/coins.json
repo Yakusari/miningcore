@@ -130,7 +130,7 @@
             "hash": "reverse",
             "args": [ { "hash": "sha256d" } ]
         },
-        "coinbaseIgnoreAuxFlags": true, // since Release 0.20
+        "coinbaseIgnoreAuxFlags": true,
         "explorerBlockLink": "https://www.blockchain.com/btc/block/$hash$",
         "explorerTxLink": "https://www.blockchain.com/btc/tx/{0}",
         "explorerAccountLink": "https://www.blockchain.com/btc/address/{0}"
@@ -257,8 +257,7 @@
         "explorerAccountLink": "https://blocks.notebc.space/address/{0}"
     },
     
-    // Peercoin is not working as they have switched to hybrib POW + POS. Tested, block orphans 100% of time.
-   
+    
     "peercoin": {
         "name": "Peercoin",
         "symbol": "PPC",
@@ -569,8 +568,6 @@
         "explorerTxLink": "https://chainz.cryptoid.info/cann/tx.dws?{0}.htm",
         "explorerAccountLink": "https://chainz.cryptoid.info/cann/address.dws?{0}.htm"
     },
-
-// Ravencoin is currently not working. X16r is OLD algorithm. KawPow is Ravencoin's current algo.    
     "ravencoin": {
         "name": "Ravencoin",
         "symbol": "RVN",
